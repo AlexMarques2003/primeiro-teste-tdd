@@ -25,7 +25,6 @@ public class CadastroPessoasTest {
     public void deveAdicionarUmaPessoa(){
 
         pessoa.setNome("Alex");
-
         cadastroPessoas.adicionar(pessoa);
 
         Assertions.assertThat(cadastroPessoas.getPessoas())
