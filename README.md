@@ -1,5 +1,6 @@
 # primeiro-teste-tdd
-Exemplo de código utilizando TDD
+Exemplo de código utilizando TDD BDD
 
-- JUnit para testes iniciais
-- Utilizando AssertJ - para testes unitários
+- JUnit
+- AssertJ - para testes unitários
+- Mockito-core 3.1.0
