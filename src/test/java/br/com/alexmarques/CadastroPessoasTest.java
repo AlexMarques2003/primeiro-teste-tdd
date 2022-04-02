@@ -17,14 +17,17 @@ public class CadastroPessoasTest {
 
     @Test
     public void deveCriarOCadastroDePessoas(){
-
          // Verificação
         Assertions.assertThat(cadastroPessoas.getPessoas()).isEmpty();
     }
 
     @Test
     public void deveAdicionarUmaPessoa(){
+
+        pessoa.setNome("Alex");
+
         cadastroPessoas.adicionar(pessoa);
+
         Assertions.assertThat(cadastroPessoas.getPessoas())
                 .isNotEmpty()
                 .hasSize(1)
@@ -33,7 +36,29 @@ public class CadastroPessoasTest {
 
     @Test(expected = PessoaSemNomeException.class)
     public void naoDeveAdicionarPessoaComNomeVazio(){
+        // cenario
+
+        // execução
         cadastroPessoas.adicionar(pessoa);
+    }
+
+    @Test
+    public void deveRemoverUmaPessoa(){
+        // cenário
+        pessoa.setNome("Alex");
+        cadastroPessoas.adicionar(pessoa);
+        // execução
+        cadastroPessoas.remover(pessoa);
+        Assertions.assertThat(cadastroPessoas.getPessoas()).isEmpty();
+
+    }
+
+    @Test(expected = CadastroVazioException.class)
+    public void deveLancarErroAoTentarRemoverPessoaInexistente(){
+        // cenário
+
+        // execução
+        cadastroPessoas.remover(pessoa);
     }
 
 }

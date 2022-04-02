@@ -13,10 +13,18 @@ public class CadastroPessoas {
     public List<Pessoa> getPessoas() {
         return this.pessoas;
     }
+
     public void adicionar(Pessoa pessoa) {
         if(pessoa.getNome() == null){
             throw new PessoaSemNomeException();
         }
         this.pessoas.add(pessoa);
+    }
+
+    public void remover(Pessoa pessoa) {
+        if(this.pessoas.isEmpty()){
+            throw new CadastroVazioException();
+        }
+        this.pessoas.remove(pessoa);
     }
 }
